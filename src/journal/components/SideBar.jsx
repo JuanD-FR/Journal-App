@@ -3,15 +3,19 @@ import { Box, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIco
 import { useSelector } from 'react-redux';
 import { SideBarItem } from "./";
 
-export const SideBar = ({ drawerWidth = 240 }) => {
+export const SideBar = ({ drawerWidth = 320 }) => {
 
     const { displayName } = useSelector( state => state.auth );
     const { notes } = useSelector( state => state.journal );
 
   return (
+    
     <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0} }}    
+        sx={{ 
+            width: { sm: drawerWidth }, 
+            flexShrink: { sm: 0},
+        }}    
     >
         <Drawer
             variant="permanent"
@@ -21,11 +25,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
                 '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth} 
             }} 
         >
-            <Toolbar>
-                <Typography variant="h6" noWrap component='div'>
-                    { displayName }
-                </Typography>
-            </Toolbar>
+            
             <Divider />
 
             <List>
